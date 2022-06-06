@@ -4,6 +4,7 @@
     Author     : Alumno
 --%>
 
+<%@page import="org.teamtask.helper.ProcAlmacenadoHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,11 @@
         <title>Team-Task</title>
     </head>
     <body>
+        <%
+            boolean alternativa = false;
+            if( alternativa == false )
+            {
+        %>
         <div class="container-fluid p-3 text-white bg-dark">
             <header class="d-flex flex-wrap justify-content-center py-3">
                 <nav class="nav justify-content-right">
@@ -26,6 +32,37 @@
                 </nav>
             </header>
         </div>
+        <%
+            }
+            else{
+        %>
+        <div class="container-fluid p-3 text-white bg-dark">
+            <header class="d-flex flex-wrap justify-content-center py-3">
+                <nav class="nav justify-content-right">
+                    <a class="nav-link text-white" href="#"> <button type="button" class="btn btn-dark"> <i class="fas fa-globe-americas"></i> HWI </button> </a>
+                    <a class="nav-link text-white" href="?action=home"> <button type="button" class="btn btn-dark"> <i class="fas fa-home"></i> Team-Task </button> </a>
+                    <a class="nav-link text-white" href="?action=licenciasB"> <button type="button" class="btn btn-dark"> <i class="fas fa-dollar-sign"></i> Licencias </button> </a>
+                    <a class="nav-link text-white" href="?action=pizarras"> <button type="button" class="btn btn-dark"> <i class="fas fa-table"></i> Mis Pizarras </button> </a>
+                    <a class="nav-link text-white" href="#"> <button type="button" class="btn btn-dark"> <i class="fas fa-file"></i> Acerca de Team-Task </button> </a>
+                </nav>
+                <button type="button" class="btn btn-dark">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-user-circle"></i> Usuario </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="?action=cuenta"> <i class="fas fa-cogs"></i> Cuenta </a></li>
+                              <li><a class="dropdown-item" href="?action=LicenciaA"> <i class="fas fa-money-bill"></i> Licencia actual </a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="index.jsp"> <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </button>
+            </header>
+        </div>
+        <%
+            }
+        %>
         <div>
             <%
                 if( request == null )
@@ -44,6 +81,15 @@
                         <jsp:include page="Licencias.jsp" />
             <%
                         break;
+                    case "licenciasB":
+            %>
+                        <jsp:include page="LicenciasBuy.jsp" />
+            <%
+                        break;
+                    case "pizarras":
+            %>
+                        <jsp:include page="MisPizarras.jsp" />
+            <%
                     case "registrarse":
             %>
                         <jsp:include page="Registrarse.jsp" />
@@ -53,6 +99,17 @@
             %>
                         <jsp:include page="Sesion.jsp" />
             <%
+                        break;
+                    case "send":
+                        if( new ProcAlmacenadoHelper( ).addProcAlmacenado(request) )
+                        {
+                            response.sendRedirect("index.jsp");
+                        }
+                        break;
+                    case "iniciar":
+                        if( 0 == 0){
+                            
+                        }
                         break;
                     case "home":
                     default:

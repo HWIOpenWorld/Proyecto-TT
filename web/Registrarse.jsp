@@ -16,35 +16,38 @@
             <form class="row g-3">
                 <div class="col-md-6">
                   <label for="inputName4" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre">
+                  <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputName4" class="form-label">Apellido Paterno</label>
-                  <input type="text" class="form-control" id="apellido_p">
+                  <input type="text" class="form-control" id="apellido_p" name="apellido_p" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputName4" class="form-label">Apellido Materno</label>
-                  <input type="text" class="form-control" id="apellido_m">
+                  <input type="text" class="form-control" id="apellido_m" name="apellido_m" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword4" class="form-label">Fecha de nacimiento</label>
-                  <input type="Date" class="form-control" id="fecha_nac">
+                  <input type="Date" class="form-control" id="fecha_nac" name="fecha_nac" required>
                 </div>
                 <div class="col-12">
                   <label for="inputUser" class="form-label">Correo electrónico</label>
-                  <input type="email" class="form-control" id="correo_e">
+                  <input type="email" class="form-control" id="correo_e" name="correo_e" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputEmail4" class="form-label">Nombre de usuario</label>
-                  <input type="text" class="form-control" id="usuario">
+                  <input type="text" class="form-control" id="usuario" name="usuario" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputEmail4" class="form-label">Contraseña de usuario</label>
-                  <input type="password" class="form-control" id="pass_u">
+                  <input type="password" class="form-control" id="pass_u" name="pass_u" required>
+                </div>
+                <div> 
+                    <input type="hidden" id="action" name="action" value="send" />
                 </div>
                 <div class="col-12">
-                <button type="button" class="btn btn-primary btn-lg">Registrarse </button>
-                <button type="button" class="btn btn-secondary btn-lg">Limpiar formulario</button>
+                <button type="submit" class="btn btn-primary btn-lg">Registrarse </button>
+                <button type="reset" class="btn btn-secondary btn-lg">Limpiar formulario</button>
                 </div>
             </form>
         </div>

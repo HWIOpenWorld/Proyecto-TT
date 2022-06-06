@@ -10,7 +10,7 @@ create table tblCliente(
 	apellido_p varchar(25) not null,
 	apellido_m varchar(25) not null,
 	fecha_nac date not null,
-	correo_e varchar(25) not null,
+	correo_e varchar(50) not null,
 	primary key (id_cliente));
 
 create table CatTipoLic(
@@ -129,7 +129,7 @@ insert into CatEmpresa(Empresa) values("No definido");
 insert into CatTipoLic(tipo_Lic, precio) values("Soft", 00.00);
 
 delimiter //
-create procedure sp_Usuario(in nom nvarchar(20), ap_P nvarchar(25), ap_M nvarchar(25), nac date, correo nvarchar(25), nUsuario nvarchar(20), pass nvarchar(12))
+create procedure sp_Usuario(in nom nvarchar(20), ap_P nvarchar(25), ap_M nvarchar(25), nac date, correo nvarchar(50), nUsuario nvarchar(20), pass nvarchar(12))
 begin
 
 	declare xIdLicencia int;
@@ -156,3 +156,4 @@ begin
 			insert into tblUsuario(id_Cliente, usuario, pass_u, id_Licencia) values(xIdCliente, nUsuario, pass, xIdLicencia);
 		end if;
 end;//
+delimiter ;

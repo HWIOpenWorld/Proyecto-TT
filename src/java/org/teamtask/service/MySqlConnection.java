@@ -21,7 +21,7 @@ public class MySqlConnection implements Serializable
 {
     public static String user = "root";
     public static String password = "n0m3l0";
-    public static String db = "tarea1";
+    public static String db = "teamtask";
     public static boolean testDriver( )
     {
         try 
