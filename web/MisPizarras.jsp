@@ -15,7 +15,7 @@
             <section class="py-4 text-center container">
               <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                  <h1 class="fw-light">Mis Pizarras <a href="NuevaPizarra.jsp"> <button type="button" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> </button> </a> </h1>
+                  <h1 class="fw-light">Mis Pizarras <a href="?action=newP"> <button type="button" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> </button> </a> </h1>
                 </div>
               </div>
             </section>
@@ -130,7 +130,7 @@
                             <p class="card-text"> <i class="fas fa-ballot-check"></i> Hello World </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="Pizarra.jsp" > <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-door-open"></i> Entrar</button> </a>
+                                    <a href="?action=enter" > <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-door-open"></i> Entrar</button> </a>
                                     &nbsp;&nbsp;
                                     <button type="button" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> Editar</button>
                                 </div>

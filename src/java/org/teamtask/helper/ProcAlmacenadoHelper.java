@@ -49,6 +49,7 @@ public class ProcAlmacenadoHelper implements Serializable
             return false;
         }
         procAlmacenado.getUsuario().getCliente().setCorreo_e(request.getParameter( "correo_e" ) );
+
         if( procAlmacenado.getUsuario().getCliente().getCorreo_e()== null || procAlmacenado.getUsuario().getCliente().getCorreo_e().length() == 0 )
         {
             return false;

@@ -48,7 +48,7 @@
                       <li>Capacidad colaborativa max. de 20 personas por pizarra</li>
                       <li>Soporte técnico</li>
                     </ul>
-                    <a href="datosBForm.jsp"> <button type="button" class="w-100 btn btn-lg btn-primary">Comience ahora</button> </a>
+                    <a href="?action=dtsB"> <button type="button" class="w-100 btn btn-lg btn-primary">Comience ahora</button> </a>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@
                       <li>Capacidad colaborativa max. de 50 personas por pizarra</li>
                       <li>Soporte técnico inmediato</li>
                     </ul>
-                    <a href="datosBForm.jsp"> <button type="button" class="w-100 btn btn-lg btn-primary">Comience ahora</button> </a>
+                    <a href="?action=dtsB"> <button type="button" class="w-100 btn btn-lg btn-primary">Comience ahora</button> </a>
                   </div>
                 </div>
               </div>

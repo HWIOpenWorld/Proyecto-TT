@@ -17,7 +17,7 @@
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1> Example 1 </h1>
                     <br/>
-                    <h2 class="fw-light">Mis Tareas <a href="NuevaTarea.jsp"> <button type="button" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> </button> </a> </h2>
+                    <h2 class="fw-light">Mis Tareas <a href="?action=newT"> <button type="button" class="btn btn-outline-dark btn-lg"> <i class="fas fa-plus-circle"></i> </button> </a> </h2>
                 </div>
               </div>
             </section>

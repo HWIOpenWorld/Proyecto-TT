@@ -8,24 +8,30 @@
 <!DOCTYPE html>
 <html>
     <body>
-        
         <div class="container p-5">
             <br/>
             <br/>
             <h1>Inicie sesión en Team-Task</h1>
             <br/>
             <br/>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
-                <label for="floatingInput">Correo Electrónico</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Contraseña de usuario</label>
-            </div>
-            <br/>
-            <a href="Home.jsp"> <button type="button" class="btn btn-primary btn-lg">Iniciar sesión</button> </a>
-            <button type="button" class="btn btn-secondary btn-lg">Limpiar formulario</button>
+            <form>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com" required/>
+                    <label for="floatingInput">Correo Electrónico</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Password" required/>
+                    <label for="floatingPassword">Contraseña de usuario</label>
+                </div>
+                <br/>
+                <div>
+                    <input type="hidden" id="action" name="action" value="login" />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg">Iniciar sesión </button>
+                    <button type="reset" class="btn btn-secondary btn-lg">Limpiar formulario</button>
+                </div>
+            </form>
             <br/>
             <br/>
             <br/>
