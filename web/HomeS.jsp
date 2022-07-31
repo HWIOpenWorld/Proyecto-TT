@@ -4,6 +4,7 @@
     Author     : Axel Zarate Lozano
 --%>
 
+<%@page import="org.teamtask.dao.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,19 @@
         <div class="container-fluid text-light" style="background-color: #121212">
             <div align="center">
                 <br/>
-                <h1 class="display-1"> Bienvenido a Team-Task </h1>
+                <%
+                    Usuario cuenta = (Usuario)session.getAttribute("usuario");
+                    if(cuenta == null){
+                %>
+                        <h1 class="display-1"> Bienvenido a Team-Task </h1>
+                <%
+                    }
+                    else{
+                %>
+                        <h1 class="display-1"> Bienvenido a Team-Task, <%= cuenta.getUsuario() %> </h1>
+                <%
+                    }
+                %>
                 <br/>
                     <table border="0" align="center">
                         <tr>

@@ -4,6 +4,7 @@
     Author     : Alumno
 --%>
 
+<%@page import="org.teamtask.dao.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,15 @@
         <title>Team-Task</title>
     </head>
     <body>
+        
+        <%
+            Usuario cuenta = (Usuario)session.getAttribute("usuario");
+            
+            if(cuenta == null){
+                response.sendRedirect("index.jsp");
+            }
+        %>
+        
         <div class="container-fluid p-3 text-white bg-dark">
                 
             <header class="d-flex flex-wrap justify-content-center py-3">
@@ -27,7 +37,7 @@
                     
                     <a class="nav-link text-white" href="#"> <button type="button" class="btn btn-dark"> <i class="fas fa-cogs"></i> Cuenta </button> </a>
                     <a class="nav-link text-white" href="#"> <button type="button" class="btn btn-dark"> <i class="fas fa-money-bill"></i> Licencia actual </button> </a>
-                    <a class="nav-link text-white" href="index.jsp"> <button type="button" class="btn btn-dark"> <i class="fas fa-sign-out-alt"></i> Cerrar sesión </button> </a>
+                    <a class="nav-link text-white" href="?action=endSession"> <button type="button" class="btn btn-dark"> <i class="fas fa-sign-out-alt"></i> Cerrar sesión </button> </a>
                 </nav>
             </header>
         </div>
@@ -59,6 +69,7 @@
             %>
                         <jsp:include page="HomeS.jsp" />
             <%
+                        break;
                     case "newP":
             %>
                         <jsp:include page="NuevaPizarra.jsp" />
@@ -66,7 +77,7 @@
                         break;
                     case "newT":
             %>
-                        <jsp:include page="NuevaPizarra.jsp" />
+                        <jsp:include page="NuevaTarea.jsp" />
             <%
                         break;
                     case "enter":
@@ -78,6 +89,10 @@
             %>
                         <jsp:include page="datosBForm.jsp" />
             <%
+                        break;
+                    case  "endSession":
+                        request.getSession().removeAttribute("usuario");
+                        response.sendRedirect("index.jsp");
                         break;
                 }
             %>

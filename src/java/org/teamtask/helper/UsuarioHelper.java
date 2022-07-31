@@ -84,18 +84,18 @@ public class UsuarioHelper implements Serializable
 //        return new UsuarioService().updateUsuario( usuario );
 //    }
     
-    public boolean getUsuarioById( HttpServletRequest request )
+    public Usuario getUsuarioById( HttpServletRequest request )
     {
         String correo = null;
         String pass = null;
-        correo = request.getParameter( "correo" );
-        pass = request.getParameter( "contrasena" );
+        correo = request.getParameter( "correo_e" );
+        pass = request.getParameter( "pass_u" );
         if( pass == null || correo == null )
         {
-            return false;
+            return null;
         }
-        boolean encontrado = new UsuarioService().getUsuarioById( correo, pass );
-        return encontrado;
+        Usuario usuario = new UsuarioService().getUsuarioById( correo, pass );
+        return usuario;
     }
     
 //    public List<Usuario> getList()

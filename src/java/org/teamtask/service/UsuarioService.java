@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.teamtask.dao.Cliente;
 import org.teamtask.dao.Licencia;
 import org.teamtask.dao.Usuario;
@@ -124,19 +125,19 @@ public class UsuarioService
 //        return false;
 //    }
     
-    public boolean getUsuarioById( String correo, String contrasena )
+    public Usuario getUsuarioById( String correo, String contrasena )
     {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sql = "select tblCliente.correo_e, pass_u from tblUsuario inner join tblCliente on tblUsuario.id_Cliente = tblCliente.id_Cliente inner join tblLicencia on tblUsuario.id_Licencia = tblLicencia.id_Licencia where tblCliente.correo_e = ? and tblUsuario.pass_u = ?";
+        String sql = "select tblCliente.correo_e, pass_u, usuario from tblUsuario inner join tblCliente on tblUsuario.id_Cliente = tblCliente.id_Cliente inner join tblLicencia on tblUsuario.id_Licencia = tblLicencia.id_Licencia where tblCliente.correo_e = ? and tblUsuario.pass_u = ?";
         Usuario usuario = null;
         try 
         {
             connection = MySqlConnection.getConnection( );
             if( connection == null )
             {
-                return false;
+                return null;
             }
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, correo );
@@ -144,14 +145,15 @@ public class UsuarioService
             resultSet = preparedStatement.executeQuery( );
             if( resultSet == null )
             {
-                return false;
+                return null;
             }
             while( resultSet.next() )
             {
                 usuario = new Usuario( new Cliente(), new Licencia());
                 usuario.getCliente().setCorreo_e(resultSet.getString(1) );
                 usuario.setPass_u(resultSet.getString(2) );
-                return true;
+                usuario.setUsuario( resultSet.getString(3));
+                return usuario;
             }
             resultSet.close();
             MySqlConnection.closeConnection(connection);
@@ -160,7 +162,7 @@ public class UsuarioService
         {
             ex.printStackTrace();
         }
-        return false;
+        return null;
     }
     
 //    public boolean updateUsuario( Usuario usuario )

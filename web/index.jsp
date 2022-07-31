@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="org.teamtask.helper.UsuarioHelper"%>
+<%@page import="org.teamtask.dao.Usuario"%>
 <%@page import="org.teamtask.helper.ProcAlmacenadoHelper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,15 +59,26 @@
                         break;
                     case "send":
                         if( new ProcAlmacenadoHelper( ).addProcAlmacenado(request) )
-                        {
-                            response.sendRedirect("indexII.jsp");
-                            
+                        {   
+                            Usuario cuenta = null;
+                            cuenta = new UsuarioHelper().getUsuarioById( request );
+                            if( cuenta != null ){
+                                HttpSession sesion = request.getSession();
+                                sesion.setAttribute("usuario", cuenta);
+                                response.sendRedirect("indexII.jsp");
+                            }else{
+            %>
+                                <jsp:include page="Error.jsp" />
+            <%
+                            } 
                         }
                         break;
                     case "login":
-                        boolean Cuentas = false;
-                        Cuentas = new UsuarioHelper().getUsuarioById( request );
-                        if( Cuentas == true ){
+                        Usuario cuenta = null;
+                        cuenta = new UsuarioHelper().getUsuarioById( request );
+                        if( cuenta != null ){
+                            HttpSession sesion = request.getSession();
+                            sesion.setAttribute("usuario", cuenta);
                             response.sendRedirect("indexII.jsp");
                         }else{
             %>

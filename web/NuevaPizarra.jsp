@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        
         <div class="container p-5">
             <br/>
             <h1>Nueva Pizarra</h1>
